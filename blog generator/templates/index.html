@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Generator</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">MyBlog</h1>
+        <button id="darkModeToggle">🌙 Dark Mode</button>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h2>Generate a Blog</h2>
+            <form action="/generate" id="blogForm" method="POST" class="form-container">
+                <label for="topic">Topic:</label>
+                <input type="text" id="topic" name="topic" placeholder="Enter topic" required>
+
+                <label for="style">Writing Style:</label>
+                <select id="writingStyle" name="style" required>
+                    <option value="formal">Formal</option>
+                    <option value="informal">Informal</option>
+                    <option value="creative">Creative</option>
+                    <option value="technical">Technical</option>
+                </select>
+
+                <label for="language">Language:</label>
+                <select id="language" name="language" required>
+                    <option value="english">English</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="french">French</option>
+                    <option value="german">German</option>
+                </select>
+
+                <button type="submit">Generate Blog</button>
+
+            </form>
+            <!-- Display the generated content -->
+            {% if text %}
+            <div>
+                {{ text|safe }}
+                <!-- Render the HTML content safely -->
+            </div>
+            {% endif %}
+
+            <div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <script src="../static/script.js"></script>
+</body>
+
+</html>
